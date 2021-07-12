@@ -1,31 +1,20 @@
-from flask import Flask, render_template, request
+# -*- coding: utf-8 -*-
+from flask import Flask, render_template
 
-app = Flask(__name__, static_url_path='/static')
+app = Flask(__name__)
 
-app.config['DEBUG'] = True
+
+#@app.route('/')
+#def hello():
+    #return render_template('hello.html')
 
 @app.route('/')
-def index():
-    return render_template('index.html')
+def hello():
+    return render_template('sample.html')
 
-# @app.route('/', methods = ['POST'])
-# def from():
-#     field = request.from['field']
-#     return render_template('index.html',\
-#             title ="From sample",\
-#             message = "Hello, %s!", %s field)
+def main():
+    app.debug = True
+    app.run(host='127.0.0.1', port=8080)
 
-# @app.route("/")
-# def root():
-#    number = int(request.args.get('number'))
-#    string = ''
-#    for i in range(number):
-#        string += ('Hello!')
-#    return string
-
-# @app.route("/hogehoge!")
-# def hogehoge():
-#    return "hogehoge!!"
-
-if __name__=='__main__':
-    app.run(debug=True, port=11111)
+if __name__ == '__main__':
+    main()
